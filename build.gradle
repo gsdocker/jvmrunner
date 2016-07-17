@@ -1,0 +1,45 @@
+buildscript {
+    ext.kotlin_version = '1.0.3'
+    repositories {
+        maven{ url 'http://maven.oschina.net/content/groups/public/'}
+
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.3"
+    }
+}
+
+
+subprojects {
+
+    group 'com.gsdocker'
+    version '1.0-SNAPSHOT'
+
+
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+
+    targetCompatibility = 1.8
+    sourceCompatibility = 1.8
+
+    repositories {
+        maven{ url 'http://maven.oschina.net/content/groups/public/'}
+
+        mavenCentral()
+    }
+
+
+    dependencies {
+        compile group: 'io.vertx', name: 'vertx-core', version: '3.2.1'
+        compile group: 'io.vertx', name: 'vertx-web', version: '3.2.1'
+        testCompile  group: 'io.vertx', name: 'vertx-unit', version: '3.2.1'
+        testCompile 'junit:junit:4.12'
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+
