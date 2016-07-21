@@ -12,8 +12,8 @@ buildscript {
 
 
 subprojects {
-
     group 'com.gsdocker'
+
     version '1.0-SNAPSHOT'
 
 
@@ -29,17 +29,18 @@ subprojects {
         mavenCentral()
     }
 
+    ext.kotlin_version = '1.0.3'
+
 
     dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
         compile group: 'io.vertx', name: 'vertx-core', version: '3.2.1'
         compile group: 'io.vertx', name: 'vertx-web', version: '3.2.1'
         testCompile  group: 'io.vertx', name: 'vertx-unit', version: '3.2.1'
         testCompile 'junit:junit:4.12'
-        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
 }
-
 
